@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class WxSubscriptionController extends Controller
 {
     /**
-     * [Description]
+     * [自动回复微信公众号信息]
      *
      * @Author  leeprince:2020-03-24 01:10
      * @param Request $request

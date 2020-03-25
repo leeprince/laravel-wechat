@@ -5,6 +5,10 @@
  * @Author  leeprince:2020-03-22 19:20
  */
 
+Route::any('hello', function() {
+   dump('hello world');
+});
+
 Route::any('subscription',  'WxSubscriptionController@index')->middleware('wechat.subscription.CheckSignture');
 
 Route::any('welcome',  function() {
