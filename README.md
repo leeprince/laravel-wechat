@@ -261,7 +261,8 @@ class WxSubscriptionController extends Controller
 }
 ```
 
-##【扩展服务：中间件】
+## 8.【扩展服务：中间件】
+
 测试通过后继续完善代码提取检测签名部分到中间件中作为请求过滤，这里是用的是路由中间件。需要在 WeChatServiceProvider 服务提供者中加载路由中间件到路由中。
 ```
 <?php
@@ -325,7 +326,7 @@ class WeChatServiceProvider extends ServiceProvider
 }
 ```
 	
-##【扩展服务：视图】
+## 9.【扩展服务：视图】
 1.在 ./src/Resources/views/view.blade.php 中编写视图文件。
 
 ```
@@ -415,7 +416,7 @@ Route::any('welcome',  function() {
 });
 ```
 	
-##【扩展服务：配置文件】
+## 10.【扩展服务：配置文件】
 1.在 ./src/Config/wechat.php 中编写配置文件
 ```
 <?php
@@ -530,7 +531,7 @@ Route::any('config',  function() {
 });
 ```
 
-##【扩展服务：外部允许修改配置文件】
+## 11.【扩展服务：外部允许修改配置文件】
 1.在服务提供者 WeChatServiceProvider 中添加允许在 laravel 框架的 config 中修改组件的配置文件，而无需到组件的配置文件中修改的方法。
 ```
 <?php
@@ -584,7 +585,7 @@ class WeChatServiceProvider extends ServiceProvider
 ```
 2.在 laravel 项目的根目录执行命令：**php artisan vendor:publish --provider="LeePrince\WeChat\WeChatServiceProvider"** 即可在 laravel 项目的 ./config/wechat.php 中看到该组件的所有配置信息，并允许修改生效。
 
-##【扩展服务：自定义 Artisan 命令用于创建控制器到组件中】
+## 12.【扩展服务：自定义 Artisan 命令用于创建控制器到组件中】
 1.在 ./src/Console/MakeWechatComposerControllerCommand.php 中编写自定义 Artisan 命令
 ```
 <?php
@@ -706,11 +707,11 @@ class WeChatServiceProvider extends ServiceProvider
 
 ```
 
-## 发布 composer 组件包到 [github](https://github.com/leeprince/laravel-wechat) 作为 composer 的代码仓库
+## 13. 发布 composer 组件包到 [github](https://github.com/leeprince/laravel-wechat) 作为 composer 的代码仓库
 
-## 在 [packagist](https://packagist.org/packages/leeprince/laravel-wechat) 中提交该组件的 github 项目地址作为 composer 组件包的包仓库
+## 14. 在 [packagist](https://packagist.org/packages/leeprince/laravel-wechat) 中提交该组件的 github 项目地址作为 composer 组件包的包仓库
 
-## 在 laravel 项目中删除 composer 的本地仓库，并使用 composer 的远程仓库
+## 15. 在 laravel 项目中删除 composer 的本地仓库，并使用 composer 的远程仓库
 1. 在 laravel 项目根目录的 composer.json 文件中删除本地仓库的信息
 ```
 范围1：
@@ -741,21 +742,15 @@ class WeChatServiceProvider extends ServiceProvider
 删除2：注意删除后结尾处没有 「,」符号
     "leeprince/laravel-wechat": "dev-master"
 ```
-2.在 laravel 项目 ./vendor/leeprince 的扩展包
-3.增加新的依赖包到当前 laravel 项目的 ./vendor 目录中
+2.删除在 laravel 项目 ./vendor/ 目录的 leeprince 扩展包
+
+3.使用 composer 远程仓库增加新的依赖包到当前 laravel 项目的 ./vendor 目录中
 ```
 composer require leeprince/laravel-wechat
 ```
 
-## 最后查看整个基于 laravel 开发微信公众号 composer 扩展包集成到 laravel 后，在微信公众号运行的效果
+## 16. 最后查看整个基于 laravel 开发微信公众号 composer 扩展包集成到 laravel 后，在微信公众号运行的效果
 ![微信公众号](./src/Document/wechat.jpg)
-
-## github 代码仓库地址
-https://github.com/leeprince/laravel-wechat
-
-## packagist composer 包仓库
-https://packagist.org/packages/leeprince/laravel-wechat
-
 
 
 ## 使用该基于 laravel 开发微信公众号 composer 扩展包的方法
@@ -769,5 +764,11 @@ https://packagist.org/packages/leeprince/laravel-wechat
 // 自定义服务提供者 - 基于微信公众号开发的 composer 组件
 LeePrince\WeChat\WeChatServiceProvider::class,
 ```
+
+## github 代码仓库地址
+https://github.com/leeprince/laravel-wechat
+
+## packagist composer 包仓库: leeprince/laravel-wechat
+https://packagist.org/packages/leeprince/laravel-wechat
 
 ## 完善 README.md 的编写
