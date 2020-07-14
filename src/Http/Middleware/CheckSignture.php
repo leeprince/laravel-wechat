@@ -3,6 +3,7 @@
 namespace LeePrince\WeChat\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Log;
 
 class CheckSignture
 {
@@ -39,6 +40,7 @@ class CheckSignture
             }
         } else {
             dump('验证失败');
+            Log::error('验证失败');
             response('false');
         }
     }
