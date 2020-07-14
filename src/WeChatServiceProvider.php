@@ -104,7 +104,7 @@ class WeChatServiceProvider extends ServiceProvider
     {
         // 将给定配置与现有配置合并。
         // 指定的 key = 配置的文件名。即可让配置文件合并到由 $this->publishes([__DIR__ . '/Config' => config_path()], $groups = null); 分配的由文件名组成的同一个组中
-        $this->mergeConfigFrom(__DIR__ . "/Config/wechat.php", 'wechat');
+        $this->mergeConfigFrom(__DIR__ . "/Config/wechat.php", 'leeprince-wechat');
     }
     
     /**
