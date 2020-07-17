@@ -21,8 +21,8 @@ class MakeWechatComposerControllerCommand extends ControllerMakeCommand
     /**
      * 控制台命令名称
      *  注意：关于命令的变量说明
-     *      - 在使用 $name 变量设置控制台命令的名称(无签名)时不需要需要在 make:LaravelWechatShopClass 后面加上替换参数 {name}。
-     *      - 在使用 $signature 变量设置控制台命令的名称和签名时需要在 make:LaravelWechatShopClass 后面加上替换参数 {name}，否则报错： Too many arguments, expected arguments "command".
+     *      - 在使用 $name 变量设置控制台命令的名称(无签名)时不需要需要在 prince-make:controller-wechat 后面加上替换参数 {name}。
+     *      - 在使用 $signature 变量设置控制台命令的名称和签名时需要在 prince-make:controller-wechat 后面加上替换参数 {name}，否则报错： Too many arguments, expected arguments "command".
      *      - $signature 的优先级大于 $name
      *      - 源码：Illuminate\Console\Command
      *          if (! isset($this->signature)) {
@@ -31,10 +31,10 @@ class MakeWechatComposerControllerCommand extends ControllerMakeCommand
      *
      * @var string
      */
-    protected $name = 'make:LaravelWechatController';
+    protected $name = 'prince-make:controller-wechat';
     
     // 控制台命令的描述
-    protected $description = '创建 leeprince/laravel-wechat composer 组件包中的控制器：php artisan make:LaravelWechatController 控制器名(或者是带路径的控制器名)';
+    protected $description = '创建 leeprince/laravel-wechat composer 组件包中的控制器：php artisan prince-make:controller-wechat 控制器名(或者是带路径的控制器名)';
     
     private $rootNamespace = 'LeePrince\Wechat';
     
