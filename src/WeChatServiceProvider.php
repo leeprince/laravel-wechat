@@ -110,6 +110,7 @@ class WeChatServiceProvider extends ServiceProvider
     /**
      * [执行 vendor:publish 命令发布配置文件到指令目录，即可以发布配置文件到指定目录，达到允许外部修改配置文件信息的目的]
      *      执行：php artisan vendor:publish --provider="LeePrince\WeChat\WeChatServiceProvider"
+     *      注意：发布的文件如果存在则不覆盖，如需继续发布，请先删除项目中./config 下同名的配置文件
      *
      * @Author  leeprince:2020-03-25 00:43
      */
