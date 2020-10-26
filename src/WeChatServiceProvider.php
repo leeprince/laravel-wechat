@@ -107,9 +107,10 @@ class WeChatServiceProvider extends ServiceProvider
          */
         /**
          * 即读取配置文件的方式有：
-         *     1. 通过 {文件名.配置项} 的方式
+         *     1. 使用$this->publishes([__DIR__ . '/Config' => config_path()], $groups = null);发布配置后，通过 {文件名.配置项} 的方式
          *     2. 通过 {mergeConfigFrom后key != 文件名的键.配置项} 的方式
          *     3. 通过{Arr::dot()合并后的键.配置项}读取
+         *      注意：因为发布文件之后，外部文件配置可能会修改，以下第1和第2种方式都不能读取到新的修改。所以允许修改的部分就通过第1中去读取，不允许修改的部分使用第1和第2种都行
          */
         $this->mergeConfigFrom(__DIR__ . "/Config/leeprince-wechat.php", 'leeprince-wechat');
     }
