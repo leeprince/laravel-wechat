@@ -35,6 +35,8 @@ if ($tmpStr == $signature) {
 
 2.在 **「微信公众号->开发->基本配置->服务器配置」** 中配置信息，其中服务器地址（URL）要能被外网访问，第一次配置会传入 echostr 参数进行服务器地址的有效校验，之后微信服务器与业务服务器的交互不再包含此参数。可以正确提交即检验成功，之后启动该服务配置。后面可以在「管理->消息管理」中查看用户给公众号发的消息。
 
+>   项目的服务器地址的路由地址为：/wechat/subscription
+
 > 补充：基于内网开发的可以使用 [ngrok](https://ngrok.com/) 进行内网穿透。ngrok 会分配 http 和 https 的临时链接供你使用的。（mac使用：/Applications/ngrok http 80）其中 「Web Interface」的本地链接 http://127.0.0.1:4040 是 web 页面用于查看 ngrok 转发的信息
 ```angular2
 ngrok by @inconshreveable                                       (Ctrl+C to quit)
@@ -111,8 +113,8 @@ composer config repositories.leeprince path ../composer/laravel-wechat
 2.增加新的依赖包到当前项目的 ./vendor/ 中
 ```angular2
 composer require leeprince/laravel-wechat:dev-master
-``` 
-    
+```
+
 ## 5. 编写服务提供者，并注册到 laravel 的服务提供者中
 这是将该 composer leeprince/laravel-wechat 扩展包集成到 laravel 的第一步
 1.在 laravel-wechat 项目的 ./src 路径下 编写服务提供者 WeChatServiceProvider 并继承 laravel 的服务提供者。注意命名空间为：namespace LeePrince\WeChat; 该服务提供者用于加载自定义组件中的所有服务
@@ -325,7 +327,7 @@ class WeChatServiceProvider extends ServiceProvider
     }
 }
 ```
-	
+
 ## 9.【扩展服务：视图】
 1.在 ./src/Resources/views/view.blade.php 中编写视图文件。
 
@@ -415,7 +417,7 @@ Route::any('welcome',  function() {
     return view('wechatview::welcome');
 });
 ```
-	
+
 ## 10.【扩展服务：配置文件】
 1.在 ./src/Config/wechat.php 中编写配置文件
 ```
